@@ -8,3 +8,4 @@ dist/
 *.log
 supabase/.branches/
 supabase/.temp/
+.claude/

@@ -1,0 +1,144 @@
+:root {
+  --bg-deep: #100b07;
+  --bg-panel: #1b140e;
+  --bg-panel-raised: #241b13;
+  --bg-well: #0b0805;
+
+  --border: #4a3722;
+  --border-soft: #33271a;
+  --gold: #d4af37;
+  --gold-bright: #f0cd6a;
+  --gold-dim: #8b6914;
+
+  --text: #ece1c8;
+  --text-muted: #b3a488;
+  --text-faint: #7d735f;
+  --text-heading: var(--gold-bright);
+
+  --danger: #e05252;
+  --success: #4caf7d;
+  --warning: #c98a2c;
+
+  --rarity-mythic: #ff8a3d;
+  --rarity-rare: #d4af37;
+  --rarity-uncommon: #b9c4cc;
+  --rarity-common: #9a8f7c;
+
+  --shadow-card: 0 4px 10px rgba(0, 0, 0, 0.5);
+  --shadow-panel: 0 8px 24px rgba(0, 0, 0, 0.45);
+  --radius: 0.6rem;
+
+  --font-heading: "Cinzel", "Iowan Old Style", Georgia, serif;
+  --font-body: "Inter", system-ui, "Segoe UI", sans-serif;
+
+  color-scheme: dark;
+  color: var(--text);
+  background: var(--bg-deep);
+  font: 16px/1.5 var(--font-body);
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  min-height: 100svh;
+  background:
+    radial-gradient(ellipse at top, rgba(212, 175, 55, 0.06), transparent 60%),
+    linear-gradient(180deg, var(--bg-deep), #0a0704 100%);
+}
+
+#root {
+  min-height: 100svh;
+  display: flex;
+  flex-direction: column;
+}
+
+h1,
+h2,
+h3 {
+  font-family: var(--font-heading);
+  color: var(--text-heading);
+  font-weight: 600;
+  letter-spacing: 0.02em;
+  margin: 0 0 0.5rem;
+}
+
+h1 {
+  font-size: 2.25rem;
+}
+
+h2 {
+  font-size: 1.4rem;
+}
+
+h3 {
+  font-size: 1.05rem;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  color: var(--gold-dim);
+}
+
+p {
+  margin: 0 0 0.5rem;
+  color: var(--text-muted);
+}
+
+a {
+  color: var(--gold-bright);
+}
+
+button {
+  font-family: var(--font-body);
+  font-weight: 600;
+  font-size: 0.85rem;
+  color: var(--text);
+  background: linear-gradient(180deg, var(--bg-panel-raised), var(--bg-panel));
+  border: 1px solid var(--border);
+  border-radius: 0.4rem;
+  padding: 0.45rem 0.9rem;
+  cursor: pointer;
+  transition:
+    border-color 0.15s,
+    color 0.15s,
+    transform 0.1s;
+}
+
+button:hover:not(:disabled) {
+  border-color: var(--gold);
+  color: var(--gold-bright);
+}
+
+button:active:not(:disabled) {
+  transform: translateY(1px);
+}
+
+button:disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+input {
+  font-family: var(--font-body);
+  font-size: 0.9rem;
+  color: var(--text);
+  background: var(--bg-well);
+  border: 1px solid var(--border-soft);
+  border-radius: 0.4rem;
+  padding: 0.5rem 0.7rem;
+}
+
+input:focus {
+  outline: none;
+  border-color: var(--gold);
+}
+
+::selection {
+  background: var(--gold-dim);
+  color: var(--bg-deep);
+}

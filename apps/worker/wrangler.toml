@@ -1,0 +1,25 @@
+name = "hob-sealed-sim-worker"
+main = "src/index.ts"
+compatibility_date = "2024-11-01"
+compatibility_flags = ["nodejs_compat"]
+
+# URL e publishable/anon key não são segredos (são a config pública do
+# client-side do Supabase); ambos seguros para viver em [vars].
+[vars]
+SUPABASE_URL = "https://pkhouewxprhbljhxtxid.supabase.co"
+SUPABASE_ANON_KEY = "sb_publishable_CNvZuh2aPjNkq_qky2TVEw_c1TBENEU"
+
+[[durable_objects.bindings]]
+name = "MATCH_ROOM"
+class_name = "MatchRoomDO"
+
+[[migrations]]
+tag = "v1"
+new_sqlite_classes = ["MatchRoomDO"]
+
+[[r2_buckets]]
+binding = "CARD_IMAGES"
+bucket_name = "hob-card-images"
+# As imagens passam pelo Worker (não pelo domínio público r2.dev): a Cloudflare
+# documenta o r2.dev como não recomendado para produção (instável/rate-limited).
+# Cache-Control longo no handler compensa o consumo extra de cota do Worker.
